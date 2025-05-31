@@ -1,0 +1,54 @@
+
+
+dictionary:
+Rich -> Ron
+Graeme -> Vlado
+Michelle -> Sandy
+
+
+a=1;
+b=2;
+c=a+b;
+
+
+mov ax, #1
+mov bx, #2
+add ax, bx
+
+mov cx, #00001800
+mov [cx], #1
+mov [cx+4], #2
+mov ax, [cx];
+mov bx, [cx+4];
+add ax,bx
+mov [cx+8], ax;
+
+
+栈
+
+
+
+5
+beijing  1500 BJ 4161
+shanghai 1800 SH 4465
+chongqin 2000 CQ 4330
+shenzhen 1000 SZ 3238
+guangzhou 1000 GZ 2883
+
+
+5
+John male 1980 4 23 china
+Jane female 2012 5 3 canada
+Tom male 2003 4 30 usa
+Jerry male 2005 7 10 china
+Alice female 2008 9 4 korea
+
+5
+John male 1980 4 23 china 0001 
+Jane female 2012 5 3 canada 0003
+Tom male 2003 7 30 usa 0005
+Jerry male 2003 4 10 china 0002
+Alice female 2003 9 4 korea 0004 
+
+
+1.2 1.4 3.5 2.3 0.7 1.0 2.1
