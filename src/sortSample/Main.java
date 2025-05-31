@@ -84,7 +84,7 @@ public class Main {
 }
 
 
-class Human implements Comparable {
+class Human implements Comparable<Human> {
 	
 	String name;
 	String gender;
@@ -110,10 +110,10 @@ class Human implements Comparable {
 
 
 	@Override
-	public int compareTo(Object o) {
+	public int compareTo(Human o) {
 		// TODO Auto-generated method stub
-		Human human = (Human)o;
-		return this.birthDate.compareTo(human.birthDate);
+
+		return this.birthDate.compareTo(o.birthDate);
 	}
 	
 	
@@ -121,7 +121,7 @@ class Human implements Comparable {
 	
 }
 
-class Date implements Comparable{
+class Date implements Comparable<Date>{
 	int year;
 	int month;
 	int day;
@@ -140,23 +140,23 @@ class Date implements Comparable{
 	}
 
 	@Override
-	public int compareTo(Object o) {
+	public int compareTo(Date o) {
 		// TODO Auto-generated method stub
-		Date date = (Date)o;
-		if (this.year < date.year) return -1;
-		else if (this.year > date.year) return 1;
 		
-		if (this.month < date.month) return -1;
-		else if (this.month > date.month) return 1;
+		if (this.year < o.year) return -1;
+		else if (this.year > o.year) return 1;
 		
-		if (this.day < date.day) return -1;
-		else if (this.day > date.day) return 1;
+		if (this.month < o.month) return -1;
+		else if (this.month > o.month) return 1;
+		
+		if (this.day < o.day) return -1;
+		else if (this.day > o.day) return 1;
 		
 		return 0;
 	}
 }
 
-class Student extends Human {
+class Student extends Human  {
 	String ID;
 	
 	public Student(String name, String gender, Date birthDate, String nationality, String id) {
@@ -170,10 +170,10 @@ class Student extends Human {
 	}
 	
 	@Override
-	public int compareTo(Object o) {
+	public int compareTo(Human o) {
 		// TODO Auto-generated method stub
-		Human student = (Student)o;
-		return student.birthDate.compareTo(student.birthDate);
+		
+		return this.birthDate.compareTo(o.birthDate);
 		
 	}
 }
