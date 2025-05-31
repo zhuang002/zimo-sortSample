@@ -153,4 +153,12 @@ class Student extends Human {
 	public String toString() {
 		return super.toString()+" "+this.ID;
 	}
+	
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		Student student = (Student)o;
+		return this.ID.compareTo(student.ID) ;
+		
+	}
 }
