@@ -52,31 +52,60 @@ public class Main {
 			System.out.println(student);
 		}
 		
-		ArrayList<Student> studentList = new ArrayList<>();
-		for (Student student:students) {
-			studentList.add(student);
-		}
 		
-		Arrays.sort(students);
-		System.out.println("=====Sort order======");
+		System.out.println("=====Sort order by name======");
 		
+		Arrays.sort(students, (x,y)->{
+			return x.name.compareTo(y.name);
+		});
 		for (Student student:students) {
 			System.out.println(student);
 		}
 		
-		System.out.println("=====List before sorting");
 		
-		for (Student student:studentList) {
+		System.out.println("=====Sort order by id======");
+		
+		Arrays.sort(students, (x,y)->{
+			return x.ID.compareTo(y.ID);
+		});
+		
+		for (Student student:students) {
 			System.out.println(student);
 		}
 		
-		Collections.sort(studentList);
+		System.out.println("=====Sort order by birthDate======");
 		
-		System.out.println("=====List after sorting");
+		Arrays.sort(students, (x,y)->{
+			if (x.birthDate.year<y.birthDate.year) return -1;
+			if (x.birthDate.year>y.birthDate.year) return 1;
+			if (x.birthDate.month<y.birthDate.month) return -1;
+			if (x.birthDate.month>y.birthDate.month) return 1;
+			if (x.birthDate.day<y.birthDate.day) return -1;
+			if (x.birthDate.day>y.birthDate.day) return 1;
+			return 0;
+		});
 		
-		for (Student student:studentList) {
+		for (Student student:students) {
 			System.out.println(student);
 		}
+		
+		System.out.println("=====Sort order by age======");
+		
+		Arrays.sort(students, (x,y)->{
+			if (x.birthDate.year<y.birthDate.year) return 1;
+			if (x.birthDate.year>y.birthDate.year) return -1;
+			if (x.birthDate.month<y.birthDate.month) return 1;
+			if (x.birthDate.month>y.birthDate.month) return -1;
+			if (x.birthDate.day<y.birthDate.day) return 1;
+			if (x.birthDate.day>y.birthDate.day) return -1;
+			return 0;
+		});
+		
+		for (Student student:students) {
+			System.out.println(student);
+		}
+		
+		
 		
 		
 	}
@@ -84,7 +113,7 @@ public class Main {
 }
 
 
-class Human implements Comparable {
+class Human {
 	
 	String name;
 	String gender;
@@ -106,19 +135,6 @@ class Human implements Comparable {
 		return this.name+" "+this.gender+" " + this.birthDate
 			+" "+this.nationality;
 	}
-
-
-
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		Human human = (Human)o;
-		String nameToCompare = human.name;
-		return this.name.compareTo(nameToCompare);
-	}
-	
-	
-	
 	
 }
 
