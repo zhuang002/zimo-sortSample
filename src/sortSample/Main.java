@@ -113,8 +113,7 @@ class Human implements Comparable {
 	public int compareTo(Object o) {
 		// TODO Auto-generated method stub
 		Human human = (Human)o;
-		String nameToCompare = human.name;
-		return this.name.compareTo(nameToCompare);
+		return this.birthDate.compareTo(human.birthDate);
 	}
 	
 	
@@ -122,7 +121,7 @@ class Human implements Comparable {
 	
 }
 
-class Date {
+class Date implements Comparable{
 	int year;
 	int month;
 	int day;
@@ -138,6 +137,22 @@ class Date {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return this.year+" "+this.month+" " +this.day;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		Date date = (Date)o;
+		if (this.year < date.year) return -1;
+		else if (this.year > date.year) return 1;
+		
+		if (this.month < date.month) return -1;
+		else if (this.month > date.month) return 1;
+		
+		if (this.day < date.day) return -1;
+		else if (this.day > date.day) return 1;
+		
+		return 0;
 	}
 }
 
@@ -157,8 +172,8 @@ class Student extends Human {
 	@Override
 	public int compareTo(Object o) {
 		// TODO Auto-generated method stub
-		Student student = (Student)o;
-		return this.ID.compareTo(student.ID) ;
+		Human student = (Student)o;
+		return student.birthDate.compareTo(student.birthDate);
 		
 	}
 }
